@@ -19,8 +19,8 @@ This project built with React.js & React Query for efficient data fetching and c
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/IdoBouskila/Pokedex.git`
-2. Navigate to the project directory: `cd pokedex`
+1. Clone the repository
+2. Navigate to the project directory: `cd PokeWorld`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm run dev`
 
