@@ -1,32 +1,31 @@
-import React, { Suspense, useState, useCallback, lazy } from 'react'
-import './App.css'
-import Loader from './components/Loader'
-import { PokemonModalProvider } from './context/PokemonModalProvider'
+import './App.css';
+import React, { Suspense, useState } from 'react';
+import TypesBar from './components/TypesBar';
+import PokemonsContainer from './components/PokemonsContainer';
+import Modal from './components/modal/Modal';
+import { PokemonModalProvider } from './context/PokemonModalProvider';
+import Loader from './components/Loader';
 
-const TypesBar = lazy(() => import('./components/TypesBar'))
-const PokemonsContainer = lazy(() => import('./components/PokemonsContainer'))
-const Modal = lazy(() => import('./components/modal/Modal'))
-
-export default function App() {
-  const [type, setType] = useState('ice')
-  const handleTypeChange = useCallback(newType => setType(newType), [])
+function App() {
+  const [type, setType] = useState('ice');
 
   return (
-    <PokemonModalProvider>
-      <div className="app">
-        <header className="app__header">
-          <h1 className="app__logo">Pokédex</h1>
-        </header>
+    <Suspense fallback={ <Loader /> }>
+      <PokemonModalProvider>
+          <div className='wrapper'>
+            <h1 className='logo-pokemon'>Pokédex</h1>
 
-        <main className="app__content">
-          <Suspense fallback={<Loader />}>
-            <TypesBar onSelectType={handleTypeChange} selectedType={type} />
-            <PokemonsContainer type={type} />
-          </Suspense>
-        </main>
+            <TypesBar toggleType={ setType } />
+            <PokemonsContainer type={ type } />
+          </div>
 
-        <Modal />
-      </div>
-    </PokemonModalProvider>
+          <Modal />
+      </PokemonModalProvider>
+    </Suspense>
   )
 }
+
+export default App
+
+
+this too
