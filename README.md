@@ -1,4 +1,4 @@
-﻿# Pokédex React App
+﻿# PokéWORLD dex React App
 
 Pokédex React app that lets you discover and explore Pokémon based on [PokéAPI](https://pokeapi.co/).
 
@@ -27,3 +27,4 @@ This project built with React.js & React Query for efficient data fetching and c
 ## Usage
 
 Open your web browser and visit the provided URL or `http://localhost:5173` to access the Pokédex app.
+
