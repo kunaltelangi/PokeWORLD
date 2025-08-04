@@ -6,22 +6,21 @@ const TypesBar = ({ toggleType }) => {
     const types = useTypes();
 
     return (
-        <nav className='types-bar'>
-            {
-                types.map(({ name }) => {
-                    const typeImg = getTypeIconSrc(name);
+        <nav className="types-bar" aria-label="Filter by Pokémon type">
+            {types.map(({ name }) => {
+                const iconSrc = getTypeIconSrc(name);
 
-                    return (
-                        <a
-                            key={ name }
-                            className={ name }
-                            onClick={ () => toggleType(name) }
-                        >
-                            <img src={ typeImg } alt={ name } />
-                        </a>
-                    );
-                })
-            }
+                return (
+                    <button
+                        key={name}
+                        className={`type-button ${name}`}
+                        onClick={() => toggleType(name)}
+                        aria-label={`Toggle ${name} type`}
+                    >
+                        <img src={iconSrc} alt={`${name} icon`} />
+                    </button>
+                );
+            })}
         </nav>
     );
 };
